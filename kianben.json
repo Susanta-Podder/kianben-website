@@ -1,0 +1,99 @@
+{
+  "members": [],
+  "applications": [],
+  "announcements": [
+    {
+      "id": 1,
+      "title": "Welcome to KiAnben Community!",
+      "content": "We are thrilled to launch our community platform. Stay updated on the latest import batches, sourcing opportunities, and trade insights. Together, we import smarter!",
+      "author": "KiAnben Admin",
+      "status": "approved",
+      "submitted_by": "admin",
+      "created_at": "2026-03-09T18:30:10.432Z",
+      "updated_at": "2026-03-09T18:30:10.432Z"
+    },
+    {
+      "id": 2,
+      "title": "New Shared Import Batch — Electronics from China",
+      "content": "Opening a new shared batch for consumer electronics from Shenzhen. Minimum order starts at $500. Join before the 15th. Contact us via Facebook or WhatsApp.",
+      "author": "KiAnben Admin",
+      "status": "approved",
+      "submitted_by": "admin",
+      "created_at": "2026-03-09T18:30:10.433Z",
+      "updated_at": "2026-03-09T18:30:10.433Z"
+    },
+    {
+      "id": 3,
+      "title": "Updated Customs Duty Rates 2025",
+      "content": "NBR has updated customs duty rates effective January 2025. Our team has reviewed all changes. Reach out for a free duty assessment on your products.",
+      "author": "KiAnben Admin",
+      "status": "approved",
+      "submitted_by": "admin",
+      "created_at": "2026-03-09T18:30:10.434Z",
+      "updated_at": "2026-03-09T18:30:10.434Z"
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password_hash": "$2a$10$6Hz0w8n4c8ijzF4bPYPe5.sKC.gcbWUl7CWYszUi1iUWtD/Zp2Mb2",
+      "created_at": "2026-03-09T18:30:10.429Z"
+    }
+  ],
+  "orders": [],
+  "pricing": [
+    {
+      "id": 1,
+      "name": "Starter",
+      "price": 0,
+      "period": "free",
+      "desc": "For beginners exploring import",
+      "features": [
+        "Community Access",
+        "1 Free Consultation",
+        "Import Guides & Resources",
+        "Facebook Group Access",
+        "~Shared Import Batches",
+        "~Priority Support"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Community",
+      "price": 2500,
+      "period": "/year",
+      "desc": "For active importers",
+      "features": [
+        "Everything in Starter",
+        "Shared Import Batches",
+        "Only 1% Commission",
+        "Duty & Customs Help",
+        "WhatsApp Support",
+        "~Dedicated Account Manager"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Business",
+      "price": 8000,
+      "period": "/year",
+      "desc": "Full A-Z for serious businesses",
+      "features": [
+        "Everything in Community",
+        "A-Z Import Management",
+        "LC & Payment Handling",
+        "Door-to-Door Delivery",
+        "Dedicated Account Manager",
+        "Priority Processing"
+      ]
+    }
+  ],
+  "_counters": {
+    "members": 0,
+    "applications": 0,
+    "announcements": 3,
+    "admins": 1,
+    "orders": 0
+  }
+}

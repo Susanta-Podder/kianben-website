@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ══ Primary SEO ═══════════════════════════════════════════════ -->
+  <title>KiAnben — Import Smarter. Together. | Bangladesh Import Community</title>
+  <meta name="description" content="KiAnben is Bangladesh's #1 shared import community. Import without a personal license at just 1% commission. Consultation, A-Z import support, and shared batch importing from China, India, Turkey, UAE and 15+ countries worldwide."/>
+  <meta name="keywords" content="KiAnben, Bangladesh import community, shared import Bangladesh, import without license Bangladesh, import agent Bangladesh, China import Bangladesh, A to Z import service, customs clearance Bangladesh, 1% commission import, আমদানি বাংলাদেশ"/>
+  <meta name="author" content="KiAnben"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://kianben.com/"/>
+
+  <!-- ══ Open Graph (Facebook / WhatsApp link preview) ═════════════ -->
+  <meta property="og:type"         content="website"/>
+  <meta property="og:url"          content="https://kianben.com/"/>
+  <meta property="og:title"        content="KiAnben — Import Smarter. Together."/>
+  <meta property="og:description"  content="Bangladesh's trusted community for middleman-free importing. No license needed. Just 1% commission on shared imports from 15+ countries."/>
+  <meta property="og:image"        content="https://kianben.com/assets/og-image.jpg"/>
+  <meta property="og:image:width"  content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale"       content="en_US"/>
+  <meta property="og:site_name"    content="KiAnben"/>
+
+  <!-- ══ Twitter Card ══════════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="KiAnben — Import Smarter. Together."/>
+  <meta name="twitter:description" content="Bangladesh's trusted community for middleman-free importing. No license needed. Just 1% commission."/>
+  <meta name="twitter:image"       content="https://kianben.com/assets/og-image.jpg"/>
+
+  <!-- ══ Structured Data (JSON-LD) ═════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KiAnben",
+    "url": "https://kianben.com",
+    "logo": "https://kianben.com/assets/logo.png",
+    "description": "Bangladesh's trusted community for smart, middleman-free importing.",
+    "foundingLocation": { "@type": "Place", "name": "Bangladesh" },
+    "sameAs": [
+      "https://www.facebook.com/kianbenbd",
+      "https://www.facebook.com/iamvishalagarwal"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+880-1683000984",
+      "contactType": "customer support",
+      "availableLanguage": ["English", "Bengali"]
+    },
+    "offers": [
+      { "@type": "Offer", "name": "Import Consultation",  "description": "Expert import guidance for businesses in Bangladesh" },
+      { "@type": "Offer", "name": "A-Z Import Support",   "description": "Complete end-to-end import management service" },
+      { "@type": "Offer", "name": "Shared Import",        "description": "Community-pooled imports at only 1% commission" }
+    ]
+  }
+  </script>
+
+  <!-- ══ Site Stylesheet ═══════════════════════════════════════════ -->
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║           NAVBAR                ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <img src="logo.png" alt="KiAnben Logo"/>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"          class="nav-link">Home</a></li>
+      <li><a href="#about"         class="nav-link">About</a></li>
+      <li><a href="#services"      class="nav-link">Services</a></li>
+      <li><a href="#pricing"       class="nav-link">Pricing</a></li>
+      <li><a href="#how-it-works"  class="nav-link">How It Works</a></li>
+      <li><a href="#announcements" class="nav-link">Announcements</a></li>
+      <li><a href="#join"          class="nav-link">Join</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-signin" id="openSignin">
+        <i class="fas fa-user"></i> Sign In
+      </button>
+      <a href="#join" class="btn-nav-join">Join Community</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║             HERO                ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1920&q=85" alt="Container port Bangladesh import" loading="eager"/>
+    <div class="hero-overlay"></div>
+    <div class="grid-pattern"></div>
+    <div id="floatingDots"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content hero-content--full">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Your most trusted import partner.
+      </div>
+      <h1 class="hero-title">
+        Import Smarter.<br/>
+        <span class="gradient-text">Together.</span>
+      </h1>
+      <p class="hero-sub">
+        No license. No middlemen. Community-pooled imports under KiAnben's licensed
+        umbrella — saving you money on every shipment from 15+ countries worldwide.
+      </p>
+      <div class="hero-cta">
+        <a href="#join" class="btn-primary">
+          Join the Community <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#how-it-works" class="btn-ghost">
+          <i class="fas fa-play-circle"></i> How It Works
+        </a>
+        <button class="btn-quote" id="openQuoteModal">
+          <i class="fas fa-file-invoice-dollar"></i> Get a Quote
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
+          <p>Members</p>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="1200">0</span><span class="stat-plus">+</span>
+          <p>Shipments Done</p>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="15">0</span><span class="stat-plus">+</span>
+          <p>Countries</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║          COUNTRY TICKER         ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span>🌏 China</span><span>🇮🇳 India</span><span>🇹🇷 Turkey</span>
+    <span>🇦🇪 UAE</span><span>🇺🇸 USA</span><span>🇩🇪 Germany</span>
+    <span>🇯🇵 Japan</span><span>🇰🇷 Korea</span><span>🇹🇭 Thailand</span>
+    <span>🇲🇾 Malaysia</span><span>🇻🇳 Vietnam</span><span>🇮🇩 Indonesia</span>
+    <span>🇮🇹 Italy</span><span>🇫🇷 France</span><span>🇬🇧 UK</span>
+    <!-- duplicate for seamless loop -->
+    <span>🌏 China</span><span>🇮🇳 India</span><span>🇹🇷 Turkey</span>
+    <span>🇦🇪 UAE</span><span>🇺🇸 USA</span><span>🇩🇪 Germany</span>
+    <span>🇯🇵 Japan</span><span>🇰🇷 Korea</span><span>🇹🇭 Thailand</span>
+    <span>🇲🇾 Malaysia</span><span>🇻🇳 Vietnam</span><span>🇮🇩 Indonesia</span>
+    <span>🇮🇹 Italy</span><span>🇫🇷 France</span><span>🇬🇧 UK</span>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║             ABOUT               ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images">
+        <img class="about-img-main"
+             src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=520&q=80"
+             alt="Cargo shipment"/>
+        <img class="about-img-float"
+             src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=260&q=75"
+             alt="Team working"/>
+        <div class="about-badge">
+          <span class="big">1%</span>
+          <span class="small">Service Fee</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title">Eliminating the Middleman.<br/><span>Since Day One.</span></h2>
+        <p>KiAnben was founded with one mission: <strong>make importing accessible to everyone in Bangladesh</strong>. Import licenses are a major barrier for small and medium businesses — we bridge that gap.</p>
+        <p>Through our community model, members pool orders and import directly under KiAnben's licensed umbrella. No individual license needed. We handle everything for just <strong>1% commission</strong>.</p>
+        <div class="pillar-list">
+          <div class="pillar"><i class="fas fa-shield-alt"></i><div><strong>Licensed &amp; Trusted</strong><p>Official import licenses, full compliance</p></div></div>
+          <div class="pillar"><i class="fas fa-users"></i><div><strong>Community-Driven</strong><p>Shared imports = shared savings</p></div></div>
+          <div class="pillar"><i class="fas fa-globe-asia"></i><div><strong>Global Sourcing</strong><p>Verified suppliers in 15+ countries</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║            SERVICES             ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="services section-pad dark-section" id="services">
+  <div class="container">
+    <div class="section-tag center">What We Offer</div>
+    <h2 class="section-title center light">Our <span>Services</span></h2>
+    <p class="section-sub center light">Three powerful pathways to smarter importing</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=75" alt="Consultation"/>
+          <div class="svc-num">01</div>
+        </div>
+        <div class="service-body">
+          <div class="svc-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Consultation</h3>
+          <p>Expert guidance on your import options before you commit any resources.</p>
+          <ul>
+            <li><i class="fas fa-check"></i>Product Sourcing Advice</li>
+            <li><i class="fas fa-check"></i>Shipment Route Planning</li>
+            <li><i class="fas fa-check"></i>Duty &amp; Tax Assessment</li>
+            <li><i class="fas fa-check"></i>Supplier Verification</li>
+          </ul>
+          <a href="#join" class="svc-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="service-card featured">
+        <div class="featured-ribbon">Most Popular</div>
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=400&q=75" alt="Full import"/>
+          <div class="svc-num">02</div>
+        </div>
+        <div class="service-body">
+          <div class="svc-icon gold"><i class="fas fa-route"></i></div>
+          <h3>A–Z Import Support</h3>
+          <p>Complete end-to-end management. We handle every step of your import.</p>
+          <ul>
+            <li><i class="fas fa-check"></i>Product Sourcing</li>
+            <li><i class="fas fa-check"></i>LC &amp; Payment Handling</li>
+            <li><i class="fas fa-check"></i>Customs Clearance</li>
+            <li><i class="fas fa-check"></i>CNF Services</li>
+            <li><i class="fas fa-check"></i>Door-to-Door Delivery</li>
+          </ul>
+          <a href="#join" class="svc-btn gold-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&q=75" alt="Shared import"/>
+          <div class="svc-num">03</div>
+        </div>
+        <div class="service-body">
+          <div class="svc-icon"><i class="fas fa-people-carry"></i></div>
+          <h3>Shared Import</h3>
+          <p>Pool orders with community members. No personal import license needed.</p>
+          <ul>
+            <li><i class="fas fa-check"></i>No License Required</li>
+            <li><i class="fas fa-check"></i>Community-Pooled Orders</li>
+            <li><i class="fas fa-check"></i>Only 1% Commission</li>
+            <li><i class="fas fa-check"></i>Transparent Costs</li>
+          </ul>
+          <a href="#join" class="svc-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║            PRICING              ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="pricing section-pad" id="pricing">
+  <div class="container">
+    <div class="section-tag center">Membership Plans</div>
+    <h2 class="section-title center">Simple, <span>Transparent</span> Pricing</h2>
+    <p class="section-sub center">No hidden fees. Pick the plan that fits your import needs.</p>
+    <div class="pricing-grid" id="pricingGrid">
+
+      <div class="price-card">
+        <div class="price-icon"><i class="fas fa-seedling"></i></div>
+        <h3>Starter</h3>
+        <div class="price-amount"><span class="currency">৳</span><span>Free</span></div>
+        <p class="price-desc">Perfect for beginners exploring import</p>
+        <ul class="price-features">
+          <li class="on"><i class="fas fa-check"></i>Community Access</li>
+          <li class="on"><i class="fas fa-check"></i>1 Free Consultation</li>
+          <li class="on"><i class="fas fa-check"></i>Import Guides &amp; Resources</li>
+          <li class="on"><i class="fas fa-check"></i>Facebook Group Access</li>
+          <li class="off"><i class="fas fa-times"></i>Shared Import Batches</li>
+          <li class="off"><i class="fas fa-times"></i>Priority Support</li>
+        </ul>
+        <a href="#join" class="price-btn">Join Free</a>
+      </div>
+
+      <div class="price-card popular">
+        <div class="popular-tag">Most Popular</div>
+        <div class="price-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Community</h3>
+        <div class="price-amount"><span class="currency">৳</span><span>2,500</span><span class="per">/year</span></div>
+        <p class="price-desc">For active importers wanting shared batches</p>
+        <ul class="price-features">
+          <li class="on"><i class="fas fa-check"></i>Everything in Starter</li>
+          <li class="on"><i class="fas fa-check"></i>Shared Import Batches</li>
+          <li class="on"><i class="fas fa-check"></i>Only 1% Commission</li>
+          <li class="on"><i class="fas fa-check"></i>Duty &amp; Customs Help</li>
+          <li class="on"><i class="fas fa-check"></i>WhatsApp Support</li>
+          <li class="off"><i class="fas fa-times"></i>Dedicated Account Manager</li>
+        </ul>
+        <a href="#join" class="price-btn primary">Get Started</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-icon"><i class="fas fa-crown"></i></div>
+        <h3>Business</h3>
+        <div class="price-amount"><span class="currency">৳</span><span>8,000</span><span class="per">/year</span></div>
+        <p class="price-desc">Full A-Z support for serious businesses</p>
+        <ul class="price-features">
+          <li class="on"><i class="fas fa-check"></i>Everything in Community</li>
+          <li class="on"><i class="fas fa-check"></i>A-Z Import Management</li>
+          <li class="on"><i class="fas fa-check"></i>LC &amp; Payment Handling</li>
+          <li class="on"><i class="fas fa-check"></i>Door-to-Door Delivery</li>
+          <li class="on"><i class="fas fa-check"></i>Dedicated Account Manager</li>
+          <li class="on"><i class="fas fa-check"></i>Priority Processing</li>
+        </ul>
+        <a href="#join" class="price-btn">Get Started</a>
+      </div>
+
+    </div>
+    <p class="pricing-note">
+      <i class="fas fa-info-circle"></i>
+      Commission fees apply separately per shipment. Membership plans cover access &amp; support services.
+    </p>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║          HOW IT WORKS           ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="how-it-works section-pad dark-section" id="how-it-works">
+  <div class="container">
+    <div class="section-tag center">The Process</div>
+    <h2 class="section-title center light">How It <span>Works</span></h2>
+    <div class="steps-wrap">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body"><h4>Join the Community</h4><p>Fill the membership form. Reviewed &amp; approved within 24 hours.</p></div>
+      </div>
+      <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body"><h4>Tell Us What You Need</h4><p>Share your product requirements — quantity, specs, target price.</p></div>
+      </div>
+      <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body"><h4>We Source &amp; Quote</h4><p>We find verified suppliers and send you transparent quotations.</p></div>
+      </div>
+      <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body"><h4>Import Together</h4><p>Join a shared batch or go solo. We handle all documents &amp; customs.</p></div>
+      </div>
+      <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body"><h4>Door-to-Door Delivery</h4><p>Your goods arrive at your door. Just 1% commission on shared.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║             WHY US              ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="why-us section-pad" id="why-us">
+  <div class="container">
+    <div class="section-tag center">Our Edge</div>
+    <h2 class="section-title center">Why Choose <span>KiAnben?</span></h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon"><i class="fas fa-coins"></i></div><h4>Unbeatable Cost</h4><p>Just 1% commission versus 10–30% from traditional middlemen.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-file-contract"></i></div><h4>No License Needed</h4><p>Import under KiAnben's legal umbrella. No personal license required.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-eye"></i></div><h4>Full Transparency</h4><p>Every duty, CNF, and customs cost is disclosed before you commit.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-network-wired"></i></div><h4>Global Network</h4><p>Verified suppliers across China, Turkey, India, UAE, and more.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-headset"></i></div><h4>Dedicated Support</h4><p>Real people guiding you from sourcing to door-to-door delivery.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-users-cog"></i></div><h4>Community Power</h4><p>Shared batches unlock MOQ orders you couldn't reach alone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║         ANNOUNCEMENTS           ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="announcements section-pad dark-section" id="announcements">
+  <div class="container">
+    <div class="section-tag center">Community Board</div>
+    <h2 class="section-title center light">Announcements</h2>
+    <div class="ann-layout">
+      <div class="ann-feed" id="announcementFeed">
+        <div class="loading-block"><i class="fas fa-circle-notch fa-spin"></i> Loading…</div>
+      </div>
+      <div class="ann-side">
+        <div class="side-card">
+          <h4><i class="fas fa-bullhorn"></i> Post an Announcement</h4>
+          <p>KiAnben member? Submit your community announcement for review.</p>
+          <button class="btn-primary small" id="openAnnouncementModal">
+            <i class="fas fa-plus"></i> Submit Request
+          </button>
+        </div>
+        <div class="side-card">
+          <h4><i class="fas fa-question-circle"></i> How Announcements Work</h4>
+          <ul class="how-list">
+            <li><i class="fas fa-circle"></i>Members submit requests</li>
+            <li><i class="fas fa-circle"></i>Admin reviews content</li>
+            <li><i class="fas fa-circle"></i>Approved posts go live</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║              JOIN               ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<section class="join-section section-pad" id="join">
+  <div class="container">
+    <div class="join-grid">
+      <div class="join-left">
+        <div class="section-tag">Join Us</div>
+        <h2 class="section-title">Become a KiAnben<br/><span>Community Member</span></h2>
+        <p>Join hundreds of smart importers who've eliminated the middleman. Apply now — we review within 24 hours.</p>
+        <div class="join-perks">
+          <div class="perk"><i class="fas fa-check-circle"></i>Shared import batch access</div>
+          <div class="perk"><i class="fas fa-check-circle"></i>Import under KiAnben's license</div>
+          <div class="perk"><i class="fas fa-check-circle"></i>Only 1% commission</div>
+          <div class="perk"><i class="fas fa-check-circle"></i>Full consultation &amp; support</div>
+          <div class="perk"><i class="fas fa-check-circle"></i>Community announcements</div>
+          <div class="perk"><i class="fas fa-check-circle"></i>Direct supplier connections</div>
+        </div>
+        <img class="join-img"
+             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=460&q=75"
+             alt="Import business"/>
+      </div>
+      <div class="join-right">
+        <div class="join-card">
+          <h3>Apply for Membership</h3>
+          <div id="joinSuccess" class="success-box hidden">
+            <i class="fas fa-check-circle"></i>
+            <h4>Application Submitted!</h4>
+            <p>Our team will review and contact you within 24 hours.</p>
+          </div>
+          <form id="joinForm">
+            <div class="form-row-2">
+              <div class="fg"><label>Full Name *</label><input type="text" name="fullName" placeholder="Your full name" required/></div>
+              <div class="fg"><label>Phone *</label><input type="tel" name="phone" placeholder="+880 XXXX-XXXXXX" required/></div>
+            </div>
+            <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+            <div class="fg"><label>Business / Trade Name</label><input type="text" name="business" placeholder="Your business name (if any)"/></div>
+            <div class="fg"><label>Products to Import *</label><input type="text" name="products" placeholder="e.g. Electronics, Textiles, Machinery…" required/></div>
+            <div class="form-row-2">
+              <div class="fg">
+                <label>Import Volume</label>
+                <select name="volume">
+                  <option value="">Select range</option>
+                  <option>Under $5,000</option>
+                  <option>$5,000 – $20,000</option>
+                  <option>$20,000 – $100,000</option>
+                  <option>Above $100,000</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label>Service Needed *</label>
+                <select name="service" required>
+                  <option value="">Select service</option>
+                  <option>Consultation</option>
+                  <option>A-Z Import Support</option>
+                  <option>Shared Import</option>
+                  <option>All Services</option>
+                </select>
+              </div>
+            </div>
+            <div class="fg">
+              <label>How did you hear about us?</label>
+              <select name="referral">
+                <option value="">Select option</option>
+                <option>Facebook</option>
+                <option>Friend / Referral</option>
+                <option>Google Search</option>
+                <option>WhatsApp</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label>Additional Message</label><textarea name="message" rows="3" placeholder="Tell us more about your import needs…"></textarea></div>
+            <button type="submit" class="btn-primary full" id="joinSubmitBtn">
+              <span>Submit Application</span> <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║             FOOTER              ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.png" alt="KiAnben"/>
+          <h4>KiAnben</h4>
+          <p>Bangladesh's trusted community for smart, middleman-free importing. Your gateway to global trade.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/kianbenbd" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/8801XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:susantapodder333@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Consultation</a></li>
+            <li><a href="#services">A-Z Import</a></li>
+            <li><a href="#services">Shared Import</a></li>
+            <li><a href="#pricing">Pricing Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#about">About KiAnben</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#why-us">Why KiAnben</a></li>
+            <li><a href="#announcements">Announcements</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><i class="fab fa-facebook" style="color:#4267B2"></i> <a href="https://www.facebook.com/kianbenbd" target="_blank">kianbenbd</a></li>
+            <li><i class="fab fa-whatsapp" style="color:#25D366"></i> <a href="https://wa.me/8801XXXXXXXXX" target="_blank">WhatsApp Us</a></li>
+            <li><i class="fas fa-envelope" style="color:var(--blue)"></i> <a href="mailto:susantapodder333@gmail.com">Email Us</a></li>
+          </ul>
+          <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 KiAnben. All rights reserved. | Powered by community.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║      WHATSAPP FLOAT BUTTON      ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<a href="https://wa.me/8801XXXXXXXXX?text=Hello%20KiAnben!%20I%20am%20interested%20in%20your%20import%20services."
+   class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tip">Chat with us!</span>
+</a>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║           SIGN IN MODAL         ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="modal-overlay" id="signinModal">
+  <div class="modal-box">
+    <button class="modal-x" id="closeSignin"><i class="fas fa-times"></i></button>
+    <div class="modal-head">
+      <img src="logo.png" alt="KiAnben"/>
+      <h3>Member Sign In</h3>
+      <p>Access your KiAnben dashboard</p>
+    </div>
+    <form id="signinForm">
+      <div class="fg"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+      <div class="fg">
+        <label>Password</label>
+        <div class="pw-wrap">
+          <input type="password" name="password" id="signinPassword" placeholder="Your password" required/>
+          <button type="button" class="pw-toggle" onclick="togglePassword('signinPassword')"><i class="fas fa-eye"></i></button>
+        </div>
+      </div>
+      <div class="form-error hidden" id="signinError"></div>
+      <button type="submit" class="btn-primary full">Sign In <i class="fas fa-sign-in-alt"></i></button>
+    </form>
+    <p class="modal-foot">Not a member? <a href="#join" id="goToJoin">Apply to Join</a></p>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║     ANNOUNCEMENT REQ MODAL      ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="modal-overlay" id="announcementModal">
+  <div class="modal-box">
+    <button class="modal-x" id="closeAnnouncementModal"><i class="fas fa-times"></i></button>
+    <div class="modal-head">
+      <div class="modal-icon-wrap"><i class="fas fa-bullhorn"></i></div>
+      <h3>Submit Announcement</h3>
+      <p>Will be reviewed by admin before publishing</p>
+    </div>
+    <div class="success-box hidden" id="aReqSuccess">
+      <i class="fas fa-check-circle"></i><h4>Request Submitted!</h4><p>Admin will review and publish if approved.</p>
+    </div>
+    <form id="announcementForm">
+      <div class="fg"><label>Your Name *</label><input type="text" name="author" required placeholder="Your full name"/></div>
+      <div class="fg"><label>Your Email *</label><input type="email" name="email" required placeholder="your@email.com"/></div>
+      <div class="fg"><label>Title *</label><input type="text" name="title" required placeholder="Brief announcement title"/></div>
+      <div class="fg"><label>Content *</label><textarea name="content" rows="4" required placeholder="Write your announcement…"></textarea></div>
+      <div class="form-error hidden" id="aReqError"></div>
+      <button type="submit" class="btn-primary full">Submit for Review <i class="fas fa-paper-plane"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║         DASHBOARD MODAL         ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="modal-overlay" id="dashboardModal">
+  <div class="modal-box dash-modal">
+    <button class="modal-x" id="closeDashboard"><i class="fas fa-times"></i></button>
+    <div class="dash-head">
+      <div class="dash-avatar" id="dashAvatar"><i class="fas fa-user"></i></div>
+      <div class="dash-info">
+        <h3 id="dashName">Welcome back!</h3>
+        <p id="dashEmail"></p>
+        <span class="member-tag">Community Member</span>
+      </div>
+      <button class="btn-ghost small" id="logoutBtn">Sign Out</button>
+    </div>
+    <div class="dash-tiles">
+      <div class="dash-tile clickable" id="openProfileEdit">
+        <i class="fas fa-user-edit"></i>
+        <div><strong>My Profile</strong><p>Update info &amp; social links</p></div>
+        <i class="fas fa-arrow-right tile-arrow"></i>
+      </div>
+      <div class="dash-tile clickable" id="dashViewAnnounce">
+        <i class="fas fa-bullhorn"></i>
+        <div><strong>Announcements</strong><p>Community board</p></div>
+        <i class="fas fa-arrow-right tile-arrow"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════╗ -->
+<!-- ║       PROFILE EDIT MODAL        ║ -->
+<!-- ╚══════════════════════════════════╝ -->
+<div class="modal-overlay" id="profileModal">
+  <div class="modal-box profile-modal">
+    <button class="modal-x" onclick="closeModal('profileModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-head">
+      <div class="modal-icon-wrap"><i class="fas fa-user-edit"></i></div>
+      <h3>My Profile</h3>
+      <p>Connect your social media &amp; update your info</p>
+    </div>
+    <div class="success-box hidden" id="profileSaved">
+      <i class="fas fa-check-circle"></i><h4>Profile Saved!</h4>
+    </div>
+    <form id="profileForm">
+      <div class="form-row-2">
+        <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+880 XXXX-XXXXXX"/></div>
+        <div class="fg"><label>Business Name</label><input type="text" name="business" placeholder="Your business or trade name"/></div>
+      </div>
+      <div class="fg"><label>Bio</label><textarea name="bio" rows="2" placeholder="Brief description about yourself or your business…"></textarea></div>
+
+      <p class="profile-section-label"><i class="fas fa-share-alt"></i> &nbsp;Social Media Links</p>
+
+      <div class="fg">
+        <label><i class="fab fa-facebook" style="color:#4267B2"></i> &nbsp;Facebook Profile URL</label>
+        <input type="url" name="facebook" placeholder="https://facebook.com/yourprofile"/>
+      </div>
+      <div class="fg">
+        <label><i class="fab fa-whatsapp" style="color:#25D366"></i> &nbsp;WhatsApp Number</label>
+        <input type="tel" name="whatsapp" placeholder="e.g. 8801712345678 (digits only, no +)"/>
+      </div>
+      <div class="fg">
+        <label><i class="fab fa-youtube" style="color:#FF0000"></i> &nbsp;YouTube Channel URL</label>
+        <input type="url" name="youtube" placeholder="https://youtube.com/@yourchannel"/>
+      </div>
+      <div class="fg">
+        <label><i class="fab fa-instagram" style="color:#C13584"></i> &nbsp;Instagram Profile URL</label>
+        <input type="url" name="instagram" placeholder="https://instagram.com/yourprofile"/>
+      </div>
+      <div class="fg">
+        <label><i class="fab fa-linkedin" style="color:#0077B5"></i> &nbsp;LinkedIn Profile URL</label>
+        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourprofile"/>
+      </div>
+
+      <div class="form-error hidden" id="profileError"></div>
+      <button type="submit" class="btn-primary full">Save Profile &nbsp;<i class="fas fa-save"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════╗ -->
+<!-- ║         GET A QUOTE MODAL          ║ -->
+<!-- ╚══════════════════════════════════════╝ -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal-box quote-modal">
+    <button class="modal-x" onclick="closeModal('quoteModal')"><i class="fas fa-times"></i></button>
+
+    <!-- Header -->
+    <div class="quote-modal-head">
+      <div class="quote-icon-wrap"><i class="fas fa-file-invoice-dollar"></i></div>
+      <h3>Get a Free Import Quote</h3>
+      <p>Tell us what you need — we'll send you a detailed cost breakdown within 24 hours.</p>
+    </div>
+
+    <!-- Success state -->
+    <div class="success-box hidden" id="quoteSuccess">
+      <i class="fas fa-check-circle"></i>
+      <h4>Quote Request Sent!</h4>
+      <p>Our team will send you a detailed quote within 24 hours. Check your inbox.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="quoteForm">
+      <div class="form-row-2">
+        <div class="fg">
+          <label>Your Full Name *</label>
+          <input type="text" name="fullName" placeholder="e.g. Rahim Uddin" required/>
+        </div>
+        <div class="fg">
+          <label>Phone / WhatsApp *</label>
+          <input type="tel" name="phone" placeholder="+880 XXXX-XXXXXX" required/>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Email Address *</label>
+        <input type="email" name="email" placeholder="your@email.com" required/>
+      </div>
+
+      <div class="quote-divider"><span>Import Details</span></div>
+
+      <div class="fg">
+        <label>Product(s) You Want to Import *</label>
+        <input type="text" name="products" placeholder="e.g. Electronics, Garments, Machinery, Chemicals…" required/>
+      </div>
+      <div class="form-row-2">
+        <div class="fg">
+          <label>Country of Origin *</label>
+          <select name="origin" required>
+            <option value="">Select country</option>
+            <option>China</option>
+            <option>India</option>
+            <option>Turkey</option>
+            <option>UAE</option>
+            <option>USA</option>
+            <option>Germany</option>
+            <option>Japan</option>
+            <option>South Korea</option>
+            <option>Thailand</option>
+            <option>Malaysia</option>
+            <option>Vietnam</option>
+            <option>Indonesia</option>
+            <option>Italy</option>
+            <option>UK</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Estimated Order Value (USD)</label>
+          <select name="value">
+            <option value="">Select range</option>
+            <option>Under $1,000</option>
+            <option>$1,000 – $5,000</option>
+            <option>$5,000 – $20,000</option>
+            <option>$20,000 – $100,000</option>
+            <option>Above $100,000</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row-2">
+        <div class="fg">
+          <label>Service Required *</label>
+          <select name="service" required>
+            <option value="">Select service</option>
+            <option>Consultation Only</option>
+            <option>A-Z Import Support</option>
+            <option>Shared Import Batch</option>
+            <option>Customs Clearance Only</option>
+            <option>Sourcing &amp; Quotation</option>
+            <option>Full Package (All Services)</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Shipment Method</label>
+          <select name="shipment">
+            <option value="">Select method</option>
+            <option>Air Freight</option>
+            <option>Sea Freight (FCL)</option>
+            <option>Sea Freight (LCL / Shared)</option>
+            <option>Not Sure — Advise Me</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Additional Notes</label>
+        <textarea name="notes" rows="3" placeholder="Any special requirements, HS code, packaging details, delivery deadline…"></textarea>
+      </div>
+      <div class="form-error hidden" id="quoteError"></div>
+      <button type="submit" class="btn-primary full" id="quoteSubmitBtn">
+        <i class="fas fa-paper-plane"></i> &nbsp;Send Quote Request
+      </button>
+      <p class="quote-note"><i class="fas fa-lock"></i> Your details are kept private and never shared.</p>
+    </form>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="main.js"></script>
+</body>
+</html>

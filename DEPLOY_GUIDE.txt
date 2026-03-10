@@ -1,0 +1,230 @@
+═══════════════════════════════════════════════════════════════════
+  KIANBEN DEPLOYMENT GUIDE  —  kianben.com
+═══════════════════════════════════════════════════════════════════
+
+══════════════════════════════════════════
+ IMPORTANT: ABOUT NAMECHEAP HOSTING
+══════════════════════════════════════════
+
+Your website runs on Node.js (a server-side JavaScript engine).
+Namecheap's SHARED HOSTING (EasyWP / cPanel hosting) does NOT
+support Node.js — it only runs PHP and static HTML sites.
+
+To host your KiAnben website you have TWO options:
+
+OPTION A — Namecheap VPS (Virtual Private Server)
+  - Log in to Namecheap → Hosting → VPS Hosting
+  - Their cheapest VPS is ~$5-8/month and supports Node.js
+  - Your domain kianben.com is already on Namecheap so DNS
+    is easy to connect
+  - See "Option A: Namecheap VPS" section below
+
+OPTION B — Railway.app (RECOMMENDED — Easiest + Free tier)
+  - Free $5/month credit (enough for this site)
+  - Takes 5 minutes to deploy
+  - Your kianben.com domain points here via DNS
+  - See "Option B: Railway" section below
+
+
+══════════════════════════════════════════
+ ADMIN PANEL QUESTION — ANSWERED
+══════════════════════════════════════════
+
+Q: Do I need a second domain or second hosting for admin.html?
+A: NO. Your admin panel is part of the SAME website.
+
+When your site is live at kianben.com, the admin panel is
+automatically at:   kianben.com/admin.html
+
+It's served by the same Node.js server. No second domain
+needed, no second hosting needed.
+
+The "3 website" allowance on Namecheap hosting is for PHP/
+static sites only — it doesn't apply here because you need
+Node.js hosting which is a different product entirely.
+
+
+══════════════════════════════════════════
+ OPTION B: RAILWAY (RECOMMENDED)
+══════════════════════════════════════════
+
+STEP 1 — Create a free Railway account
+  Go to: https://railway.app
+  Sign up with GitHub (create a free GitHub account first
+  if you don't have one — takes 2 minutes)
+
+STEP 2 — Upload your code to GitHub
+  a) Go to https://github.com/new
+  b) Create a new repository named "kianben-website"
+  c) Make it PRIVATE (important — .env has secrets)
+  d) Upload all the files from this folder EXCEPT node_modules
+
+STEP 3 — Deploy on Railway
+  a) Railway dashboard → New Project → Deploy from GitHub
+  b) Select your "kianben-website" repository
+  c) Railway auto-detects Node.js and runs "npm start"
+  d) Wait ~2 minutes for first deploy
+
+STEP 4 — Set Environment Variables on Railway
+  Railway dashboard → your project → Variables tab
+  Add each line from your .env file as a variable:
+
+    PORT             = 3000
+    NODE_ENV         = production
+    SITE_URL         = https://kianben.com
+    JWT_SECRET       = (generate: node -e "console.log(require('crypto').randomBytes(48).toString('hex'))")
+    ADMIN_JWT_SECRET = (generate same way, different value)
+    EMAIL_USER       = susantapodder333@gmail.com
+    EMAIL_PASS       = zunx dcbg vama qobs
+    ADMIN_PASSWORD   = KiAnben/admin:SP/2026
+    WHATSAPP_NUMBER  = 8801683000984
+    ADMIN_IP         = (your IP from whatismyip.com — optional but recommended)
+
+STEP 5 — Connect your kianben.com domain
+  a) Railway dashboard → your project → Settings → Domains
+     → Add Custom Domain → type: kianben.com
+  b) Railway gives you a CNAME value, e.g.:
+       kianben.up.railway.app
+  c) Go to Namecheap → Domain List → kianben.com → Manage
+     → Advanced DNS tab
+  d) Delete existing A Record pointing to old host
+  e) Add new record:
+       Type:  CNAME
+       Host:  @
+       Value: (the value Railway gave you, e.g. kianben.up.railway.app)
+       TTL:   Automatic
+  f) Wait 10-30 minutes for DNS to update worldwide
+
+STEP 6 — Test
+  Open https://kianben.com  →  your main website
+  Open https://kianben.com/admin.html  →  admin panel
+  Open https://kianben.com/api/health  →  should show {"status":"OK"}
+
+
+══════════════════════════════════════════
+ OPTION A: NAMECHEAP VPS
+══════════════════════════════════════════
+
+STEP 1 — Order a VPS
+  Namecheap → Hosting → VPS Hosting → Pulsar (cheapest, ~$8/mo)
+  Choose: Ubuntu 22.04, root access
+
+STEP 2 — Connect via SSH
+  You'll get an IP, username "root", and a password in email
+  Windows: open PowerShell, type:  ssh root@YOUR_VPS_IP
+  Enter the password when prompted
+
+STEP 3 — Install Node.js on the VPS
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+  apt-get install -y nodejs
+
+STEP 4 — Install PM2 (keeps your site running 24/7)
+  npm install -g pm2
+
+STEP 5 — Upload your files
+  From your PC (in the folder containing this guide), run:
+  scp -r . root@YOUR_VPS_IP:/var/www/kianben/
+
+STEP 6 — Install and start
+  ssh root@YOUR_VPS_IP
+  cd /var/www/kianben
+  npm install
+  pm2 start server.js --name kianben
+  pm2 save
+  pm2 startup
+
+STEP 7 — Point kianben.com to your VPS
+  Namecheap → Domain List → kianben.com → Manage → Advanced DNS
+  Edit the A Record:
+    Type:  A
+    Host:  @
+    Value: YOUR_VPS_IP  (e.g. 198.54.117.xxx)
+    TTL:   Automatic
+  Wait 10-30 minutes for DNS update
+
+
+══════════════════════════════════════════
+ FILE STRUCTURE EXPLAINED
+══════════════════════════════════════════
+
+kianben/
+├── server.js              ← Main app entry point (starts the server)
+├── package.json           ← Lists all dependencies
+├── .env                   ← Your secret config (NEVER share this)
+├── Procfile               ← Tells Railway/Render how to start the app
+├── routes/
+│   ├── auth.js            ← Login, logout, profile update
+│   ├── admin.js           ← Admin panel API
+│   ├── members.js         ← Join/apply form
+│   └── announcements.js   ← Announcements + quote requests
+├── db/
+│   └── init.js            ← Database setup (uses lowdb JSON file)
+├── data/
+│   └── kianben.json       ← Your actual data (members, applications…)
+├── middleware/
+│   └── auth.js            ← JWT token verification
+├── utils/
+│   └── mailer.js          ← Email sending (welcome, quote, notifications)
+└── public/                ← Everything here is publicly accessible
+    ├── index.html         ← Main website (kianben.com)
+    ├── admin.html         ← Admin panel (kianben.com/admin.html)
+    ├── robots.txt         ← SEO: tells Google what to index
+    ├── sitemap.xml        ← SEO: your page map for Google
+    ├── assets/
+    │   └── logo.png       ← Your KiAnben logo
+    ├── css/
+    │   ├── styles.css     ← Main website styles
+    │   └── admin.css      ← Admin panel styles
+    └── js/
+        ├── main.js        ← Main website JavaScript
+        └── admin.js       ← Admin panel JavaScript
+
+
+══════════════════════════════════════════
+ ALL INTERNAL FILE LINKS — VERIFIED ✓
+══════════════════════════════════════════
+
+index.html links:
+  ✓  css/styles.css         (relative — works on any domain)
+  ✓  js/main.js             (relative — works on any domain)
+  ✓  assets/logo.png        (relative — works on any domain)
+
+admin.html links:
+  ✓  css/styles.css         (relative)
+  ✓  css/admin.css          (relative)
+  ✓  js/admin.js            (relative)
+  ✓  assets/logo.png        (relative — FIXED from KiAnben.png)
+
+All API calls in JS use /api/... paths  ✓
+  (automatically resolve to your domain, no hardcoded URLs)
+
+External links (CDN — require internet):
+  • Google Fonts
+  • Font Awesome icons
+  (Both load fine on any live server)
+
+
+══════════════════════════════════════════
+ AFTER GOING LIVE — CHECKLIST
+══════════════════════════════════════════
+
+□ Set ADMIN_IP in Railway/VPS env variables
+  (visit whatismyip.com to get your IP)
+
+□ Generate real JWT secrets (don't use the placeholder ones)
+  Run this command:
+  node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
+  Run it twice — once for JWT_SECRET, once for ADMIN_JWT_SECRET
+
+□ Test the admin panel: kianben.com/admin.html
+  Username: admin
+  Password: KiAnben/admin:SP/2026
+
+□ Test the quote request form on the homepage
+
+□ Submit sitemap.xml to Google Search Console
+  Go to: https://search.google.com/search-console
+  Add kianben.com as property
+  Submit: https://kianben.com/sitemap.xml
+
+═══════════════════════════════════════════════════════════════════
