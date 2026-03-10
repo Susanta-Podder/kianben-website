@@ -1,11 +1,11 @@
 'use strict';
-const { LowSync }      = require('lowdb');
-const { JSONFileSync } = require('lowdb/node');
-const bcrypt = require('bcryptjs');
+const fs     = require('fs');
 const path   = require('path');
+const bcrypt = require('bcryptjs');
 
-// Database file lives in the same folder as all other files
-const low = new LowSync(new JSONFileSync(path.join(__dirname, 'kianben.json')), {
+const DB_PATH = path.join(__dirname, 'kianben.json');
+
+const DEFAULTS = {
   members:       [],
   applications:  [],
   announcements: [],
@@ -13,12 +13,34 @@ const low = new LowSync(new JSONFileSync(path.join(__dirname, 'kianben.json')), 
   orders:        [],
   pricing:       [],
   _counters: { members:0, applications:0, announcements:0, admins:0, orders:0 }
-});
-low.read();
+};
+
+function readDB() {
+  try {
+    if (fs.existsSync(DB_PATH)) {
+      const raw = fs.readFileSync(DB_PATH, 'utf8');
+      const parsed = JSON.parse(raw);
+      return { ...DEFAULTS, ...parsed, _counters: { ...DEFAULTS._counters, ...(parsed._counters||{}) } };
+    }
+  } catch(e) {
+    console.error('DB read error:', e.message);
+  }
+  return JSON.parse(JSON.stringify(DEFAULTS));
+}
+
+function writeDB(data) {
+  try {
+    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
+  } catch(e) {
+    console.error('DB write error:', e.message);
+  }
+}
+
+let data = readDB();
 
 const now  = () => new Date().toISOString();
-const nid  = t  => { low.data._counters[t] = (low.data._counters[t]||0)+1; return low.data._counters[t]; };
-const save = ()  => low.write();
+const save = () => writeDB(data);
+const nid  = (t) => { data._counters[t] = (data._counters[t]||0)+1; return data._counters[t]; };
 
 const match = (obj, cond) => Object.entries(cond).every(([k,v]) =>
   typeof v==='string' && typeof obj[k]==='string'
@@ -27,53 +49,53 @@ const match = (obj, cond) => Object.entries(cond).every(([k,v]) =>
 );
 
 const db = {
-  getMembers:        (w={}) => low.data.members.filter(m => match(m,w)),
-  getMember:         (w)    => low.data.members.find(m => match(m,w)) || null,
-  insertMember:      (f)    => { const r={id:nid('members'),...f,created_at:now()}; low.data.members.push(r); save(); return r; },
+  getMembers:        (w={}) => data.members.filter(m => match(m,w)),
+  getMember:         (w)    => data.members.find(m => match(m,w)) || null,
+  insertMember:      (f)    => { const r={id:nid('members'),...f,created_at:now()}; data.members.push(r); save(); return r; },
   updateMember:      (id,f) => {
-    const i = low.data.members.findIndex(m=>m.id===id);
-    if (i>-1) { Object.assign(low.data.members[i],f); save(); return low.data.members[i]; }
+    const i = data.members.findIndex(m=>m.id===id);
+    if (i>-1) { Object.assign(data.members[i],f); save(); return data.members[i]; }
     return null;
   },
-  deleteMember:      (id)   => { low.data.members=low.data.members.filter(m=>m.id!==id); save(); },
+  deleteMember:      (id)   => { data.members=data.members.filter(m=>m.id!==id); save(); },
 
-  getApplications:   (w={}) => low.data.applications.filter(a=>match(a,w)),
-  getApplication:    (w)    => low.data.applications.find(a=>match(a,w)) || null,
-  insertApplication: (f)    => { const r={id:nid('applications'),...f,status:'pending',created_at:now()}; low.data.applications.push(r); save(); return r; },
+  getApplications:   (w={}) => data.applications.filter(a=>match(a,w)),
+  getApplication:    (w)    => data.applications.find(a=>match(a,w)) || null,
+  insertApplication: (f)    => { const r={id:nid('applications'),...f,status:'pending',created_at:now()}; data.applications.push(r); save(); return r; },
   updateApplication: (id,f) => {
-    const i=low.data.applications.findIndex(a=>a.id===id);
-    if (i>-1) { Object.assign(low.data.applications[i],f); save(); return low.data.applications[i]; }
+    const i=data.applications.findIndex(a=>a.id===id);
+    if (i>-1) { Object.assign(data.applications[i],f); save(); return data.applications[i]; }
     return null;
   },
-  deleteApplication: (id)   => { low.data.applications=low.data.applications.filter(a=>a.id!==id); save(); },
+  deleteApplication: (id)   => { data.applications=data.applications.filter(a=>a.id!==id); save(); },
 
-  getAnnouncements:   (w={}) => low.data.announcements.filter(a=>match(a,w)).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)),
-  getAnnouncement:    (w)    => low.data.announcements.find(a=>match(a,w)) || null,
-  insertAnnouncement: (f)    => { const r={id:nid('announcements'),...f,created_at:now(),updated_at:now()}; low.data.announcements.push(r); save(); return r; },
+  getAnnouncements:   (w={}) => data.announcements.filter(a=>match(a,w)).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)),
+  getAnnouncement:    (w)    => data.announcements.find(a=>match(a,w)) || null,
+  insertAnnouncement: (f)    => { const r={id:nid('announcements'),...f,created_at:now(),updated_at:now()}; data.announcements.push(r); save(); return r; },
   updateAnnouncement: (id,f) => {
-    const i=low.data.announcements.findIndex(a=>a.id===id);
-    if (i>-1) { Object.assign(low.data.announcements[i],f,{updated_at:now()}); save(); return low.data.announcements[i]; }
+    const i=data.announcements.findIndex(a=>a.id===id);
+    if (i>-1) { Object.assign(data.announcements[i],f,{updated_at:now()}); save(); return data.announcements[i]; }
     return null;
   },
-  deleteAnnouncement: (id)   => { low.data.announcements=low.data.announcements.filter(a=>a.id!==id); save(); },
+  deleteAnnouncement: (id)   => { data.announcements=data.announcements.filter(a=>a.id!==id); save(); },
 
-  getAdmin:    (w) => low.data.admins.find(a=>match(a,w)) || null,
-  insertAdmin: (f) => { const r={id:nid('admins'),...f,created_at:now()}; low.data.admins.push(r); save(); return r; },
+  getAdmin:    (w) => data.admins.find(a=>match(a,w)) || null,
+  insertAdmin: (f) => { const r={id:nid('admins'),...f,created_at:now()}; data.admins.push(r); save(); return r; },
 
-  getOrders:   (w={}) => low.data.orders.filter(o=>match(o,w)).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)),
-  getOrder:    (w)    => low.data.orders.find(o=>match(o,w)) || null,
-  insertOrder: (f)    => { const r={id:nid('orders'),...f,status:'pending',created_at:now()}; low.data.orders.push(r); save(); return r; },
+  getOrders:   (w={}) => data.orders.filter(o=>match(o,w)).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)),
+  getOrder:    (w)    => data.orders.find(o=>match(o,w)) || null,
+  insertOrder: (f)    => { const r={id:nid('orders'),...f,status:'pending',created_at:now()}; data.orders.push(r); save(); return r; },
   updateOrder: (id,f) => {
-    const i=low.data.orders.findIndex(o=>o.id===id);
-    if (i>-1) { Object.assign(low.data.orders[i],f); save(); return low.data.orders[i]; }
+    const i=data.orders.findIndex(o=>o.id===id);
+    if (i>-1) { Object.assign(data.orders[i],f); save(); return data.orders[i]; }
     return null;
   },
-  deleteOrder: (id)   => { low.data.orders=low.data.orders.filter(o=>o.id!==id); save(); },
+  deleteOrder: (id)   => { data.orders=data.orders.filter(o=>o.id!==id); save(); },
 
-  getPricing: ()      => low.data.pricing,
-  setPricing: (plans) => { low.data.pricing=plans; save(); },
+  getPricing: ()      => data.pricing,
+  setPricing: (plans) => { data.pricing=plans; save(); },
 
-  count: (t,w={}) => (low.data[t]||[]).filter(r=>match(r,w)).length
+  count: (t,w={}) => (data[t]||[]).filter(r=>match(r,w)).length
 };
 
 /* Seed admin */
